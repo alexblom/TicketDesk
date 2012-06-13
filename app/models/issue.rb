@@ -1,7 +1,7 @@
 class Issue 
   include MongoMapper::Document
   
-  key :account_id, ObjectId, :requied => true
+  key :account_id, ObjectId, :required => true
   key :name, String, :required => true
   key :description, String
   key :projected, Date
