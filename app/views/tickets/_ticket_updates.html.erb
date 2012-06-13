@@ -1,0 +1,10 @@
+<table class="table table-condensed">
+	<% @ticket.response.each do |response| %>
+	<tr>
+		<td <% if is_customer(response['user']) %> class="highlighted_note" <% end %> >
+			<%= response['ticket_response'].html_safe %> <br />
+			<h6>	<%= customer_or_user_name_by_id(response['user']) %> </h6>
+		</td>
+	</tr>
+	<% end %>
+</table>

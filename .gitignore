@@ -1,0 +1,4 @@
+log/*
+tmp/*
+test/*
+.DS_Store

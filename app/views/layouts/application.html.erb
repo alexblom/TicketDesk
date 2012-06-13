@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticketdesk</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap-modal" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand">Ticket Desk</a>
+				<div class = "pull-right">
+					<ul class="nav">
+					<li>
+					 <% if current_user %>
+						<%= link_to "Log Out", log_out_path %> 
+					<% end %>
+					</li></ul></div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span1"> </div>
+		<div class="span2">
+			 <% if current_user %>
+			<ul class="nav nav-pills nav-stacked">
+				<%= nav_link 'Tickets', tickets_path %>
+				<%= nav_link 'Issues', issues_path %>  
+				<%= nav_link 'Customers', customers_path %>
+			</ul>
+			<% end %>
+		</div>
+		<div class="span8">
+			<% if flash[:error] -%>
+			 <div class="alert alert-error"><%=h flash[:error] %></div>
+			<% end -%>
+			<% if flash[:notice] -%>
+			 <div class="alert alert-success" id="alert"><%=h flash[:notice] %></div>
+			<% end -%>
+			<%= yield %>
+		</div>
+		<div class="span1"> </div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	$(function(){
+		$("#alert").fadeOut(3000);
+	});
+</script>
+
+

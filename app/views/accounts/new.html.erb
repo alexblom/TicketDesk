@@ -1,0 +1,20 @@
+<%= form_tag new_account_path, :method => :put do %>
+<br />
+<%= label_tag "Company Name:" %> 
+<%= text_field_tag "company_name" %> <br />
+
+<%= label_tag "Support E-mail:" %>  
+<%= text_field_tag "default_from" %> <br />
+
+<%= label_tag "Admin Email:" %>  
+<%= text_field_tag "user_email" %> <br />
+
+<%= label_tag "Password:" %> 
+<%= password_field_tag "password" %> <br />
+
+<%= label_tag "Password Confirmation:" %>  
+<%= password_field_tag "password_confirmation" %> <br />
+
+<br />
+<%= submit_tag "Create Account" %> <br />
+<% end %>

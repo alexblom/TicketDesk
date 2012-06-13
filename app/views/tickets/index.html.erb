@@ -1,0 +1,56 @@
+<table id="ticket-table" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Ticket Name <i class="icon-chevron-down"></i></th>
+      <th>Client <i class="icon-chevron-down"></i></th>
+      <th>Issue  <i class="icon-chevron-down"></i></th>
+      <th>Active For <i class="icon-chevron-down"></i></th>
+	  <th>Hidden Active</th>
+	 <th>Last Response <i class="icon-chevron-down"></i></th>
+	<th>Hidden Last</th>
+	  <th>From<i class="icon-chevron-down"></i></th>	
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= link_to truncate(ticket.name, :length => 30), ticket_path(ticket) %></td>
+        <td> <%= link_to truncate((Customer.find_by_id(ticket.customer_id)).name, :length => 30), customer_path(Customer.find_by_id(ticket.customer_id)) %></td>
+        <td> <% ticket_issues(ticket).each do |issue| %>
+			 <%= link_to issue.name, issue_path(issue) %> <br /> 
+	
+	 		<% end %>
+		</td>
+	
+        <td> <%= active_for(ticket) %></td>
+ 		<td><%= ticket.created_at %> </td>
+
+		<td> <%= active_since_updated(ticket) %> </td>
+		<td><%=ticket.updated_at %></td>
+		
+		<td> <%= response_pending(ticket) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+
+<script type = "text/javascript">
+$(document).ready(function() {
+  $('#ticket-table').dataTable( {
+    "aoColumns": [ 
+      null,
+      null,
+      null,
+      {"iDataSort": 4},
+      {"sType" : "date", "bVisible" :false},
+	  {"iDataSort": 6},
+	  {"sType" : "date", "bVisible" :false},
+	  null
+    ]
+  } );
+} );
+</script>
+

@@ -1,0 +1,44 @@
+<table class="table table-striped" id="customer-table">
+  <thead>
+    <tr>
+      <th>Contact <i class="icon-chevron-down"></i></th>
+      <th>Company <i class="icon-chevron-down"></i></th>
+      <th>Open Tickets <i class="icon-chevron-down"></i></th>
+	  <th>Total Tickets <i class="icon-chevron-down"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @customers.each do |customer| %>
+	<tr>
+		<td> <%= link_to customer.name, customer %> </td>
+		<td> <%= customer.company %></td>
+		<td> <%= customer_open_tickets(customer) %></td>
+		<td><%= customer_tickets(customer) %>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+
+
+<script type = "text/javascript">
+$(document).ready(function() {
+    $('#customer-table').dataTable( {
+	"iDisplayLength": 15
+	});
+		
+		jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+		    "monthYear-pre": function ( a ) {
+		        return new Date('01 '+a);
+		    },
+
+		    "monthYear-asc": function ( a, b ) {
+		        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		    },
+
+		    "monthYear-desc": function ( a, b ) {
+		        return ((a < b) ? 1 : ((a > b) ?  -1 : 0));
+		    }
+		} );
+} );
+</script>
+

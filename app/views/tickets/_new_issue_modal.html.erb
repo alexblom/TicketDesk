@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">×</button>
+  <h3>Create Issue</h3>
+</div>
+<div class="modal-body">
+<%= form_tag create_from_partial_issue_path, :method => :put do %>
+<br />
+<%= label_tag "Name"  %> 
+<%= text_field_tag :name %> <br />
+<br />
+<%= label_tag "Description" %> 
+<%= text_area_tag "description", nil, :class => 'input-xlarge span8' %> <br />
+
+<br />
+<div class="modal-footer">
+<%= submit_tag "Create Issue", :class=>"btn btn-primary" %> <br />
+</div>
+<% end %>

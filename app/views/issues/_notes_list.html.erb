@@ -1,0 +1,10 @@
+<table class="table table-condensed note-table">
+<% @issue_notes.each do |note| %>
+<tr>
+	<td <% if note.emailed == true %> class="highlighted_note" <% end %> >
+			<%= note.content %> 
+			<h6><%= note_user_name(note.user) %>, <%= active_for(note)%> ago </h6>
+	</td>
+</tr>
+<% end %>
+</table>

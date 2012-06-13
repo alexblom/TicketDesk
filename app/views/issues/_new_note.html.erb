@@ -1,0 +1,9 @@
+<%= form_tag add_note_issue_path, :method => :put, :id => 'new_note' do %>
+
+<%= text_area_tag "content", nil, :class => 'input-xlarge span12' %>  
+
+<%= check_box_tag "email"%> Email note to associated Tickets  <br /> 
+<%= check_box_tag "close_tickets" %> Close associated Tickets <br /> <br />
+
+<%= submit_tag "Add Note", :class => 'btn btn-primary' %> 
+<% end %>

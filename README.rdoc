@@ -1,0 +1,50 @@
+== TicketDesk
+
+TicketDesk is a simple tool to manage support tickets, authored by Alex Blom (@AlexBlom).
+
+TicketDesk is an e-mail driven system. Customers are never exposed to the portal. Instead, a support e-mail is created. TicketDesk receives tickets via a rake task that connects to IMAP. Responses to tickets are e-mailed to clients, and threading is enabled.
+
+TicketDesk is also issue driven. Instead of manually managing 10 tickets with the same problem/solution, create an 'Issue'. You can then focus your time on solving the issue at hand, and batch e-mail updates / close tickets with the same issue.
+
+TicketDesk was built as an internal tool, so is rigged for my needs and use case. I'd encourage you to share the customizations made along the way.
+
+== Join / Follow
+
+Join the Mailing List / Google Group: https://groups.google.com/forum/#!forum/ticketdesk
+
+Follow me on Twitter: http://www.twitter.com/AlexBlom
+
+Check out my blog: http://www.alexblom.com
+
+== Installation / Configuration
+
+1. The Gemfile has been pre-loaded with the tools I use (i.e.  MongoMapper). Be sure to run bundle/install once downloaded.
+
+2. In environment.rb, add your Sendgrid settings. TicketDesk has no further Sendgrid dependencies, so you can change to the native / another mailer.
+
+3. TicketDesk has been built to work on Mongo. Be sure to install and then modify your mongo settings in config/mongodb.yml
+
+4. While this was built as an internal app, there is an accounts system in place. When the Rails Server is booted, you will be re-directed to create a new account and the first support user. All users / tickets will belong to this account.  
+
+5. Once the account is created, update the record via your preferred tool to include the required IMAP details (you will find these listed in the model).
+
+6. TicketDesk runs a delayed job for all mailers. I've included Collective Idea's version of Delayed Job, originally authored by Tobi of Shopify. I run Delayed Job via a background Daemon. You can find further info on running the Delayed Job at: https://github.com/collectiveidea/delayed_job
+
+7. Finally, the IMAP checker (to get new support tickets) is a rake task (tasks/email_fetch.rake). You should set up a cron to run rake get_emails.
+
+
+== Extensions / Contributing 
+
+Please do extend TicketDesk! If you are looking for ideas, I've been meaning to build the following addons:
+
+1. Stronger Gmail integration (use Gmail v. SendGrid, use Google authentication on the IMAP read for security)
+
+2. Adding new Users & IMAP details is currently a manual process. This should not be the case.
+
+
+If you want to contribute an enhancement or a fix:
+
+1. Fork the project on github.
+2. Make your changes with tests.
+3. Send a pull request.
+

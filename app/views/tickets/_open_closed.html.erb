@@ -1,0 +1,5 @@
+<% if @ticket.status == 'Open' %>
+	<%= @ticket.status %> | <%= link_to 'Close Ticket', close_ticket_ticket_path %> 
+<% else %>
+	<%= @ticket.status %>
+<% end %>

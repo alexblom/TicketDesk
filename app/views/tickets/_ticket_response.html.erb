@@ -1,0 +1,6 @@
+<%= form_tag ticket_response_ticket_path, :method => :put, :id => 'ticket_response' do %>
+
+ <%= text_area_tag "ticket_response", nil, :class => 'input-xlarge span12' %> <br />
+
+<%= submit_tag "Respond to Ticket", :class => 'btn btn-primary' %> 
+<% end %>

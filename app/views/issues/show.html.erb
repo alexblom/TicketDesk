@@ -1,0 +1,45 @@
+<div class="page-header">
+	<h1><%= @issue.name %></h1>
+</div>
+
+<div id = "notes-table", class = "span8">
+	<div class = "well">
+		<p> <%= @issue.description %> </p>
+	</div>
+	
+<p><h4>Responses: </h4><br />
+<%= render :partial => "notes_list" %> </p>
+
+<p>
+<b>Add Note:</b><br>
+<%= render :partial => "new_note"%>
+<br />
+</p>
+</div>
+
+
+<div id = "notes-table", class = "span3">
+	<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Open with this Issue (<%= total_open_tickets_by_issue(@issue) %>)</th>
+		</tr>
+	</thead>
+		<% @ticket.each do |t| %>
+		<tr>			
+			<td><%= link_to t.name, t %> </td>		
+		</tr>
+		<% end %>
+		
+			<tr>
+				<th>Closed with this Issue (<%= total_closed_tickets_by_issue(@issue) %>)</th>
+			</tr>
+		</thead>
+			<% @closed_ticket.each do |c_t| %>
+			<tr>			
+				<td><%= link_to c_t.name, c_t %> </td>		
+			</tr>
+			<% end %>
+		
+	</table>
+</div>

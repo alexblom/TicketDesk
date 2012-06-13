@@ -1,0 +1,38 @@
+<table id="issue-table" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name <i class="icon-chevron-down"></i></th>
+      <th>Total Open Tickets <i class="icon-chevron-down"></i></th>
+	  <th>Total Tickets <i class="icon-chevron-down"></i></th>
+   	  <th> Active For <i class="icon-chevron-down"></i></th>
+	<th> Hidden Active </th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @issue.each do |issue| %>
+	<tr>
+		<td> <%= link_to issue.name, issue %> </td>
+		<td> <%= total_open_tickets_by_issue(issue) %></td>
+		<td> <%= total_tickets_by_issue(issue) %></td>
+		<td> <%= active_for(issue) %> </td>
+		<td> <%= issue.created_at %> </td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+
+
+<script type = "text/javascript">
+$(document).ready(function() {
+  $('#issue-table').dataTable( {
+    "aoColumns": [ 
+      null,
+      null,
+      null,
+      {"iDataSort": 4},
+      {"sType" : "date", "bVisible" :false}
+    ]
+  } );
+} );
+</script>
+

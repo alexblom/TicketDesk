@@ -1,0 +1,75 @@
+<div class="page-header">
+	<h1><%= @ticket.name %></h1>
+</div>
+
+<div id = "notes-table", class = "span8">
+	<div class = "well">
+  <p><%= @ticket.content.html_safe %> </p>
+	</div>
+ <p> 
+<h4>Responses: </h4><br />
+<%= render :partial => 'ticket_updates' %> </p>
+
+ <p> 
+	<b>Respond to Ticket:</b><br>
+	 <%= render :partial => 'ticket_response' %> </p>
+</div>
+
+
+<div id = "notes-table", class = "span3">
+	<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Ticket Details 
+		</tr>
+	</thead>
+	<tr>
+		<td>
+			<dt><strong>Customer Name:</strong></dt>
+			<dd><%= link_to @customer.name, customer_path(@customer) %></dd>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<dt><strong>Status:</strong></dt>
+			<%= render :partial => 'open_closed' %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<dt><strong>Created: </strong></dt>
+		  <dd><%= @ticket.created_at %> <br />
+			  (<%= active_for(@ticket) %> ago) </dd>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<dt><strong>Issues:</strong> <a data-toggle="modal" href="#issue-modal" >(create new)</a></dt>
+			  <% @issues.each do |issue| %>
+					<dd><%= link_to issue.name, issue_path(issue) %></dd>
+			  <% end %>
+			<br />
+			<dd>	
+					<%= form_tag add_issues_ticket_path, :method => :put do %>
+					<%= text_field_tag :ticket_issue_tokens, "tokens" %> <br />
+					<%= submit_tag "Add Issues" %> 
+
+					<% end %></dd>
+
+					
+		</td>
+	</tr>			
+	</table>
+	
+	<div class="modal hide" id="issue-modal">
+		<%= render :partial => "new_issue_modal" %>
+	</div>
+	
+</div>
+<script type="text/javascript">
+$('#issue-modal').modal('hide')
+</script>
+
+
+
+

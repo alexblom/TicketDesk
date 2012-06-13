@@ -1,0 +1,20 @@
+Customer Name: <%= @customer.name %> <br />
+Customer E-mail: <%= @customer.email %> <br />
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<th>Open Tickets (<%= @open_tickets.size %>)</th>
+	</tr>
+	<% @open_tickets.each do |ticket| %>
+	<tr>
+		<td><%= link_to ticket.name, ticket %> </td>
+	</tr>
+	<% end %>
+	<tr>
+		<th>Closed Tickets (<%= @closed_tickets.size %>)</th>
+	</tr>
+	<% @closed_tickets.each do |closed_ticket| %>
+		<td><%= link_to closed_ticket.name, closed_ticket %> </td>
+	</tr>
+	<% end %>
+</table>
