@@ -30,7 +30,7 @@ Blog: http://www.alexblom.com
 
 2. In environment.rb, add your Sendgrid settings. TicketDesk has no further Sendgrid dependencies, so you can change to the native / another mailer.
 
-3. TicketDesk has been built to work on Mongo. Be sure to install and then modify your mongo settings in config/mongodb.yml
+3. TicketDesk has been built to work on Mongo. Be sure to install and then modify your mongo settings in config/mongodb.yml (note: Mongo Mapper comes with mongo.yml vs. mongodb.yml. In my installation, mongo.yml would not catch. If you have issues, try reverting to mongodb.yml)
 
 4. While this was built as an internal app, there is an accounts system in place. When the Rails Server is booted, you will be re-directed to create a new account and the first support user. All users / tickets will belong to this account.  
 
