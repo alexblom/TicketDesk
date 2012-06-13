@@ -12,9 +12,9 @@ TicketDesk was built as an internal tool, so is rigged for my needs and use case
 
 Join the Mailing List / Google Group: https://groups.google.com/forum/#!forum/ticketdesk
 
-Follow me on Twitter: http://www.twitter.com/AlexBlom
+Twitter: http://www.twitter.com/AlexBlom
 
-Check out my blog: http://www.alexblom.com
+Blog: http://www.alexblom.com
 
 == Installation / Configuration
 
