@@ -9,9 +9,13 @@ TicketDesk is also issue driven. Instead of manually managing 10 tickets with th
 TicketDesk was built as an internal tool, so is rigged for my needs and use case. I'd encourage you to share the customizations made along the way.
 
 DEMO: (full of fake data, running on a micro instance and emailing disabled - so no guarantees) 
+
 http://www.ticketdesk.co
+
 Username: alex@ticketdesk.co
+
 Password: 123456
+
 
 == Join / Follow
 
