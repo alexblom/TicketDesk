@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TicketdeskPublic::Application.load_tasks
+Ticketdesk::Application.load_tasks
