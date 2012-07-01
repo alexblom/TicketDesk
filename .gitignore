@@ -1,4 +1,4 @@
 log/*
 tmp/*
-test/*
 .DS_Store
+config/deploy.rb
