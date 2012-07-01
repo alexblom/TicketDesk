@@ -16,7 +16,7 @@ class User
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, :scope => :account_id
 
   def self.authenticate(email, password)
     user = find_by_email(email)

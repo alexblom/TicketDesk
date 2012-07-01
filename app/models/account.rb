@@ -11,7 +11,7 @@ class Account
   
   attr_accessor :email_password
     
-  before_save :encrypt_email_password
+  # before_save :encrypt_email_password
   
   def encrypt_password
     if email_password.present?
