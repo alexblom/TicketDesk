@@ -8,13 +8,17 @@ TicketDesk is also issue driven. Instead of manually managing 10 tickets with th
 
 TicketDesk was built as an internal tool, so is rigged for my needs and use case. I'd encourage you to share the customizations made along the way.
 
-DEMO: (full of fake data, running on a micro instance and emailing disabled - so no guarantees) 
+DEMO: [taken offline, unless somebody has a place I can host it]
 
-http://www.ticketdesk.co 
+Screen Shots:
 
-Username: alex@ticketdesk.co
+Ticket Home Screen: https://dl.dropbox.com/u/8176529/ticket_home.png
 
-Password: 123456
+Searching tickets in-line: https://dl.dropbox.com/u/8176529/ticket_search.png
+
+Tickets can have issues, responses, etc: https://dl.dropbox.com/u/8176529/ticket.png
+
+Focus on issues involving multiple tickets, vs. single tickets: https://dl.dropbox.com/u/8176529/issue.png
 
 == Join / Follow
 
